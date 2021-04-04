@@ -40,3 +40,9 @@ jobs:
     - name: Upload codecoverga
       working-directory: ./src/webapp
       run: codecov
+    - name: Upload tests                  
+      uses: testhub-io/testhub-io.action@v0.59
+      with:
+        # Test results file pattern. A glob pattern. Could be path with wildcards like /target/**/TestResults*.xml
+        test_result_pattern: ./src/webapp/*.xml
+        test_coverage_pattern: ./src/webapp/coverage/clover.xml
